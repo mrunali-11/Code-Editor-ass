@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+        integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <title>Code Editor</title>
+    <style>
+        .header {
+            background-color: black;
+            color: white;
+            font-weight: bold;
+        }
+
+        .row1 textarea {
+            background-color: grey;
+        }
+    </style>
+</head>
+
+<body class="bg-success">
+    <div class="container-fluid m-0 ">
+        <div class="row row1">
+            <h1 class="text-center text-danger">Code Editor</h1>
+            <div class="col-lg-4 p-0 ">
+                <h5 class="header"><i class="fa-brands fa-html5 ms-3 text-danger"></i><span>HTML</span></h5>
+                <textarea name="" id="html" cols="67" rows="12" class="img-fluid " onkeydown="getOutput()"></textarea>
+            </div>
+            <div class="col-lg-4 p-0">
+                <h5 class="header"><i class="fa-brands fa-css3-alt ms-3 text-primary"></i><span>CSS</span></h5>
+                <textarea name="" id="css" cols="67" rows="12" class="img-fluid" onkeydown="getOutput()"></textarea>
+            </div>
+            <div class="col-lg-4 p-0">
+                <h5 class="header"><i class="fa-brands fa-js ms-3 text-warning"></i><span>Javascript</span></h5>
+                <textarea name="" id="js" cols="67" rows="12" class="img-fluid " onkeydown="getOutput()"></textarea>
+            </div>
+        </div>
+
+        <div class="row text-dark">
+            <h4 class="header text-center">OUTPUT</h4>
+            <iframe id="output" frameborder="1" width="100%"
+                style="background-color: grey; height: 280px;"></iframe>
+        </div>
+    </div>
+
+    <script>
+        function getOutput() {
+            let html = document.getElementById('html').value;
+            let css = document.getElementById('css').value;
+            let js = document.getElementById('js').value;
+            let outputCode = html + '<style>' + css + '</style>' + '<scri' + 'pt>' + js + '</scri' + 'pt>';
+            let iframe1 = document.getElementById('output').contentWindow.document;
+
+            iframe1.open();
+            iframe1.write(outputCode);
+            iframe1.close();
+        }
+    </script>
+</body>
+
+</html>
+
+
+<!-- function demo(){
+    let a=10;
+    setInterval(()=>{
+    document.getElementsByTagName('h1')[0].style.marginLeft=a+"px";
+    a=a+10;
+    },500);
+    } -->
